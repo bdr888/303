@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
-import './App.css';
+import Posts from './Posts';
 
 class App extends Component {
   constructor(props) {
@@ -24,13 +23,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        {this.state.posts.map(post => (
-          <div key={post.id}>
-            <div>{post.title.rendered}</div>
-          </div>
-        ))}
-      </div>
+      <Posts posts={this.state.posts} />
     );
   }
 }
