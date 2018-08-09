@@ -3,16 +3,33 @@ import React, { Component } from 'react';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      posts: [],
+    };
+  }
+
+  componentDidMount() {
+    this.getPosts();
+  }
+
+  getPosts = () => {
+    fetch('https://thewirecutter.com/wp-json/wp/v2/posts')
+      .then(response => {
+        return response.json();
+      })
+      .then(myJson => this.setState({ posts: myJson }));
+  };
+
   render() {
     return (
       <div className="App">
-        {/* <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p> */}
+        {this.state.posts.map(post => (
+          <div key={post.id}>
+            <div>{post.title.rendered}</div>
+          </div>
+        ))}
       </div>
     );
   }
