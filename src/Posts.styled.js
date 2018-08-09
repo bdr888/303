@@ -26,4 +26,4 @@ const Excerpt = styled.div`
   margin: 1rem;
 `;
 
-export { Title, Excerpt, PostWrapper, Post };
+export { Excerpt, Post, PostWrapper, Title } ;

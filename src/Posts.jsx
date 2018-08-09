@@ -1,5 +1,5 @@
 import React from 'react';
-import { Excerpt, PostWrapper, Post, Title } from './Posts.styled';
+import { Excerpt, Post, PostWrapper, Title } from './Posts.styled';
 
 const Posts = props => {
   return (
